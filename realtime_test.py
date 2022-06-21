@@ -7,21 +7,39 @@ import matplotlib.pyplot as plt
 from skimage import io
 
 
-cap = cv2.VideoCapture(14)
+cap = cv2.VideoCapture(6)
 # input_img = io.imread('twofaces.jpg')
-fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._2D, device='cpu', face_detector='sfd')
+fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._2D, device='cpu', face_detector='sfd') # 'cpu' for cpu, 'cuda' for gpu
 frames = []
+
+radius = 3
+color = (0, 0, 255)
+thickness = -1
+
+def show_points(Points, frame):
+    for point in Points:
+        frame = cv2.circle(frame, tuple(point), radius, color, thickness)
+
+    return frame
 
 while(True):
       
     # Capture the video frame
     # by frame
     success, frame = cap.read()
+
+    # Get facial landmarks
+    if frame is not None:
+        det = fa.get_landmarks(frame)
+
+    # Show points
+    if det is not None:
+        Points = det[-1].astype(int)
+        frame = show_points(Points, frame)
   
     # Display the resulting frame
     cv2.imshow('frame', frame)
 
-    det = fa.get_landmarks_from_image(frame)
       
     # the 'q' button is set as the
     # quitting button you may use any
@@ -33,8 +51,6 @@ while(True):
 cap.release()
 # Destroy all the windows
 cv2.destroyAllWindows()
-
-
 
 
 # success, frame = cap.read()
