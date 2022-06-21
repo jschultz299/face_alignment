@@ -6,7 +6,7 @@ Scritps:
         - Performs face alignment on single image
    - camera_test.py
         - Simple test to check camera works.
-        - To find camera, run ```bash ffplay /dev/video0.py```
+        - To find camera, run ```bash ffplay /dev/video#.py``` replacing # with an integer.
    - realtime_test.py
         - Performs face alignment on live video feed
    - realtime_ros.py
