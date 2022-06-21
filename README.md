@@ -4,6 +4,11 @@ Code for implementing facial key point detection from Adrian Bulat's [face-align
 Scritps:
    - singleImage.py
         - Performs face alignment on single image
+   - camera_test.py
+        - Simple test to check camera works.
+        - To find camera, run ```bash
+ffplay /dev/video0.py
+```
    - realtime_test.py
         - Performs face alignment on live video feed
    - realtime_ros.py
