@@ -16,9 +16,9 @@ fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._3D, device='cpu'
                                   face_detector=face_detector, face_detector_kwargs=face_detector_kwargs)
 
 try:
-    input_img = io.imread('twofaces.jpg')
+    input_img = io.imread('face.jpg')
 except FileNotFoundError:
-    input_img = io.imread('twofaces.jpg')
+    input_img = io.imread('face.jpg')
 
 preds = fa.get_landmarks(input_img)[-1]
 
