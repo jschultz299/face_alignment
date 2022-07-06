@@ -6,8 +6,6 @@ import matplotlib.pyplot as plt
 
 from skimage import io
 
-# blah random comment
-
 cap = cv2.VideoCapture(0)
 # input_img = io.imread('twofaces.jpg')
 fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._2D, device='cpu', face_detector='sfd') # 'cpu' for cpu, 'cuda' for gpu
