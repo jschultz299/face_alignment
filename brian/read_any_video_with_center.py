@@ -81,7 +81,7 @@ for i in range(0,length):
             #actually puts the points on the face 
             frames[i] = show_points(mouth_points, frames[i])
 
-            # Making the circle in the middle of the mouth coordinates 
+            # Making the circle in the middle of the mouth coordinates x and y
             cv2.circle(frames[i], (int(avga(0,0,0)),int(avgb(0,0,0))), radius, color2, thickness)
 
 
