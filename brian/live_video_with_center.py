@@ -1,16 +1,12 @@
 import face_alignment
 import cv2
-import numpy as np
-import torch
-from skimage import io
-import matplotlib.pyplot as plt
 
 
 #inputing video
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(6)
 
 # Sets up the facial recognition package 
-fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._2D, device='cpu', face_detector='sfd') # 'cpu' for cpu, 'cuda' for gpu
+fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._2D, device='cuda', face_detector='sfd') # 'cpu' for cpu, 'cuda' for gpu
 frames = []
 
 # adjusting size and color of points on the face 
@@ -56,7 +52,7 @@ while(True):
     #Displaying the center of the mouth as well and the markers surrounding the mouth 
             cv2.circle(frame, (int(avga),int(avgb)), radius, color2, thickness)
 
-            cv2.imshow('frame', frame)
+        cv2.imshow('frame', frame)
 
         
     # the 'q' button is set as the
